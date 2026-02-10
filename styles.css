@@ -1,0 +1,48 @@
+/* การตั้งค่าพื้นฐานของ Body */
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #fdfaf5; /* สีพื้นหลังครีม */
+    color: #5d574f; /* สีตัวหนังสือเทาเข้ม */
+}
+
+/* ฟอนต์น่ารักๆ สำหรับหัวข้อ */
+.header-font {
+    font-family: 'Itim', cursive;
+}
+
+/* เอฟเฟกต์ของการ์ดสูตรอาหาร */
+.recipe-card {
+    transition: all 0.3s ease;
+}
+
+/* ตอนเอาเมาส์ชี้การ์ด ให้ลอยขึ้นนิดนึง */
+.recipe-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(220, 195, 160, 0.15);
+}
+
+/* จัดการข้อความวิธีทำ: ให้เว้นบรรทัดตามที่พิมพ์มา */
+.method-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* คลาสสำหรับซ่อน Element แบบบังคับ (ใช้ตอนสลับหน้า Login/Connected) */
+.hidden-force {
+    display: none !important;
+}
+
+/* แอนิเมชันกระพริบสีเหลือง (ใช้ตอนข้อมูลอัปเดตใหม่) */
+@keyframes flash {
+    0% { background-color: #ffedd5; }
+    100% { background-color: white; }
+}
+
+.new-update {
+    animation: flash 1s ease-out;
+}
+
+/* ป้องกันการเลือกสีเวลาแตะบนมือถือ */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
