@@ -93,11 +93,21 @@ function setupSession(id, pin) {
 // ออกจากห้อง
 function logoutCloud() {
     if(confirm("ต้องการตัดการเชื่อมต่อ?")) {
-        if (roomRef) roomRef.off(); // หยุดการซิงค์
+        // 1. หยุดฟัง Firebase
+        if (roomRef) roomRef.off(); 
+        
+        // 2. เคลียร์ตัวแปร Session
         currentRoomId = null;
         currentRoomPin = null;
         localStorage.removeItem('nomnom_roomId');
         localStorage.removeItem('nomnom_roomPin');
+
+        // =========== [ส่วนที่ต้องเพิ่ม] ===========
+        recipes = []; // ล้างข้อมูลในแรมให้ว่างเปล่า
+        localStorage.removeItem('myRecipes'); // ล้างข้อมูลที่เซฟค้างไว้ในเครื่องด้วย
+        renderRecipes(); // สั่งวาดหน้าจอใหม่ (ทีนี้มันจะกลายเป็นหน้าว่างๆ แล้ว)
+        // ======================================
+
         updateUIState();
     }
 }
